@@ -8,7 +8,7 @@ const ToDoList = () => {
 
   const handleAdd = () => {
     if (inputValue.trim()) { // trim limpia espacios en blanco
-      setTodos([...todos, { id: todos.length, text: inputValue }]) // spread operator
+      setTodos([...todos, inputValue]) // spread operator
       setinputValue('') // Limpiamos el input para volver a escribir
     }
   }
@@ -29,8 +29,8 @@ const ToDoList = () => {
       <ul>
         {todos.map((todo, index) => (
           <ToDoItem
-            key={todo.id}
-            todo={todo.text}
+            key={index}
+            todo={todo}
             handleDelete={() => deleteTodo(index)}
           />
         ))}
