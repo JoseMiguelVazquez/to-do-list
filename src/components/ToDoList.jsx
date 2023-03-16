@@ -17,6 +17,10 @@ const ToDoList = () => {
     setTodos(todos.filter((_, i) => i !== itemIndex))
   }
 
+  const generateId = () => {
+    return Math.random().toString(36).substring(2, 9)
+  }
+
   return (
     <div>
       <h1>To-Do List</h1>
@@ -29,7 +33,7 @@ const ToDoList = () => {
       <ul>
         {todos.map((todo, index) => (
           <ToDoItem
-            key={index}
+            key={index + generateId()}
             todo={todo}
             handleDelete={() => deleteTodo(index)}
           />
